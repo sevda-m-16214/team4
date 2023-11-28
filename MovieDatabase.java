@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MovieDatabase {
+
+    
     public static void main(String[] args) {
         ArrayList<Movie> MovieDatabase = new ArrayList<Movie>();
         MovieDatabase.add(new Movie("Lilja 4ever", " Lukas Moodysson",
@@ -32,5 +34,7 @@ public class MovieDatabase {
         }
         System.out.println("-----------------------");
     }
+
+    
 
 }

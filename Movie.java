@@ -17,15 +17,15 @@ public class Movie {
         return title;
     }
 
-    public String getdirector() {
+    public String getDirector() {
         return director;
     }
 
-    public int getreleaseYear() {
+    public int getReleaseYear() {
         return releaseYear;
     }
 
-    public int getrunningTime() {
+    public int getRunningTime() {
         return runningTime;
     }
 
@@ -37,11 +37,11 @@ public class Movie {
         this.director = director;
     }
 
-    public void setreleaseYear(int releaseYear) {
+    public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
 
-    public void setrunningTime(int runningTime) {
+    public void seTrunningTime(int runningTime) {
         this.runningTime = runningTime;
     }
 
