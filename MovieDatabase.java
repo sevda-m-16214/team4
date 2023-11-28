@@ -29,7 +29,6 @@ public class MovieDatabase {
         Iterator it  = MovieDatabase.iterator();
         while (it.hasNext()){
             System.out.println("----\n" + it.next());
-        
         }
         System.out.println("-----------------------");
     }
