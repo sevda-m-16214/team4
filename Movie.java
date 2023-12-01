@@ -12,7 +12,7 @@ public class Movie {
         this.runningTime = runningTime;
     }
 
-    
+    //git test
     public String getTitle() {
         return title;
     }
