@@ -1,6 +1,12 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 public class User {
     private String username;
     private String password;
+
+    File UserDatabase = new File("\\team4\\inputs");
 
 
     public User(String username, String password){
@@ -32,6 +38,7 @@ public class User {
     public String toString() {
         return "User [username=" + username + ", password=" + password + "]";
     }
+
 
 
 }
