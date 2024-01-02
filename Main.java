@@ -14,16 +14,12 @@ public class Main extends MovieDatabase{
             MovieDatabase.add(new Movie("Manchester By The Sea", "Kenneth Lonergan",
                 2016, 137));
 
-            //SignUp(new User());
-            SignIn(new User());
-            /*
-            User test1 = new User("Test1", "12345");
-            User test2 = new User("Test2", "54321");
 
             printMovie(MovieDatabase, 2);
             printDatabase(MovieDatabase);
-            */
 
+            /*User test1 = new User("Test1", "12345");
+            User test2 = new User("Test2", "54321");*/
 
 
 

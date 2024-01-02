@@ -1,11 +1,17 @@
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class User{
+public class User implements Serializable{
+    @Serial
+    private static final long serialVersionUID = 973704275480954654L;
     private String username;
     private String password;
+
+    static ArrayList <User> userArrayList = new ArrayList<>(); //initialize an Array List of Users
 
     public User(String username, String password){
         this.username = username;
@@ -41,53 +47,59 @@ public class User{
         return "User [username=" + username + ", password=" + password + "]";
     }
 
-    public static void SignUp(User test) {
+    public static void Register(){
+        User test = new User();
         Scanner myObj = new Scanner(System.in);
+
         //get user information
         System.out.println("Create a username: ");
         test.setUsername(myObj.nextLine());
         System.out.println("Create a password: ");
         test.setPassword(myObj.nextLine());
+
+        //add username to userbase ArrayList
+        userArrayList.add(test);
+
         try {
             // create an ObjectOutputStream
             FileOutputStream out = new FileOutputStream("UserDatabase.txt");
             ObjectOutputStream oout = new ObjectOutputStream(out);
-
             // write user information into file
-            oout.writeObject(test);
+            oout.writeObject(userArrayList);
             System.out.println("Account successfully created");
 
-            // close the file
-            oout.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
-
-
-    public static void SignIn(User test){
+    public static void LogIn(){
+        InputStream is = null;
         Scanner myObj = new Scanner(System.in);
+        User test = new User();
 
         //get user information
         System.out.println("Insert your username: ");
         test.setUsername(myObj.nextLine());
         System.out.println("Insert your password: ");
         test.setPassword(myObj.nextLine());
-        try {
-            FileInputStream fileInputStream = new FileInputStream("UserDatabase.txt");
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            User temp = (User) objectInputStream.readObject();
-            if(test.username.equals(temp.username) && test.password.equals(temp.password)){
-                System.out.println("Login successful");
+
+        try { //create an ObjectInputStream
+            is = new FileInputStream("UserDatabase.txt");
+            ObjectInputStream ois = new ObjectInputStream(is);
+            //read information from the file
+            ArrayList<User> std = (ArrayList<User>) ois.readObject();
+            //compare info given from a user to logs in database
+            for (User s:
+                 std) {
+                if(test.username.equals(s.getUsername()) && test.password.equals(s.getPassword())){
+                    System.out.println("Login successfully");
+                    break;
+                }
             }
-            else {
-                System.out.println("Wrong username or password. Try again");
-            }
-            objectInputStream.close();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
     }
 }
 
