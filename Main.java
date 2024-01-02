@@ -23,8 +23,5 @@ public class Main extends MovieDatabase{
             userArrayList.add(test1);
             userArrayList.add(test2);
 
-
-
-
         }
 }
