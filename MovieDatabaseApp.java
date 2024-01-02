@@ -61,7 +61,6 @@ public class MovieDatabaseApp extends JFrame {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement registration functionality if needed
                 JOptionPane.showMessageDialog(null, "Registration Feature Not Implemented");
             }
         });
@@ -101,8 +100,6 @@ public class MovieDatabaseApp extends JFrame {
         public int getRunningTime() {
             return runningTime;
         }
-    
-        // Optional: Setter methods if needed
         public void setTitle(String title) {
             this.title = title;
         }
@@ -119,13 +116,32 @@ public class MovieDatabaseApp extends JFrame {
             this.runningTime = runningTime;
         }
     
-        // Optional: Override toString method for easy display
         @Override
         public String toString() {
             return "Title: " + title + ", Director: " + director + ", Release Year: " + releaseYear + ", Running Time: " + runningTime + " minutes";
         }
     }
     
+
+    public class Watchlist {
+        private ArrayList<Movie> moviesToWatch;
+    
+        public Watchlist() {
+            moviesToWatch = new ArrayList<>();
+        }
+    
+        public ArrayList<Movie> getMoviesToWatch() {
+            return moviesToWatch;
+        }
+    
+        public void addMovieToWatchlist(Movie movie) {
+            moviesToWatch.add(movie);
+        }
+    
+        public void removeMovieFromWatchlist(Movie movie) {
+            moviesToWatch.remove(movie);
+        }
+    }
     
 
     private void openMovieActionsWindow() {
@@ -165,8 +181,6 @@ public class MovieDatabaseApp extends JFrame {
     }
 
     private void displayAddMovies() {
-        // Implement UI for adding movies within contentPanel
-        // Example: TextFields for Title, Director, Release Year, Running Time
         contentPanel.removeAll();
         contentPanel.setLayout(new GridLayout(5, 2));
 
@@ -190,10 +204,6 @@ public class MovieDatabaseApp extends JFrame {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement adding a movie to the database
-                // Retrieve data from text fields and create a Movie object
-                // Add the movie to the movieDatabase ArrayList
-                // Refresh the display or take necessary actions
                 String title = titleField.getText();
                 String director = directorField.getText();
                 int releaseYear = Integer.parseInt(releaseYearField.getText());
@@ -213,13 +223,11 @@ public class MovieDatabaseApp extends JFrame {
     }
 
     private void displayBrowseMovies() {
-        // Implement UI for browsing movies within contentPanel
         contentPanel.removeAll();
         contentPanel.setLayout(new BorderLayout());
     
         JPanel controlsPanel = new JPanel(new FlowLayout());
     
-        // Dropdown for sorting criteria
         String[] sortOptions = {"Title", "Director", "Release Year", "Running Time"};
         JComboBox<String> sortCriteriaDropdown = new JComboBox<>(sortOptions);
         controlsPanel.add(new JLabel("Sort By:"));
@@ -232,7 +240,6 @@ public class MovieDatabaseApp extends JFrame {
         movieDisplayArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(movieDisplayArea);
     
-        // Populate movieDisplayArea with movies from movieDatabase
         StringBuilder displayText = new StringBuilder();
         for (Movie movie : movieDatabase) {
             displayText.append(movie.toString()).append("\n-----------------\n");
@@ -255,7 +262,6 @@ public class MovieDatabaseApp extends JFrame {
     }
     
     private void sortMovies(String criteria) {
-        // Implement sorting logic based on the selected criteria
         switch (criteria) {
             case "Title":
                 movieDatabase.sort((m1, m2) -> m1.getTitle().compareToIgnoreCase(m2.getTitle()));
@@ -273,7 +279,7 @@ public class MovieDatabaseApp extends JFrame {
                 break;
         }
     
-        displayBrowseMovies(); // Refresh the display after sorting
+        displayBrowseMovies(); 
     }
     
 
