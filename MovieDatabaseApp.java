@@ -61,18 +61,26 @@ public class MovieDatabaseApp extends JFrame {
         JButton loginButton = new JButton("Login");
         loginButton.setPreferredSize(new Dimension(100, 50));
     
+
+
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
-    
-                if (username.equals("example") && password.equals("password")) {
+
+                boolean loginSuccessful = false;
+                try {
+                    User.LogIn(username, password);
+                    loginSuccessful = true;
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid username or password!");
+                }
+
+                if (loginSuccessful) {
                     isLoggedIn = true;
                     loginRegisterFrame.dispose();
                     openMovieActionsWindow();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Invalid username or password!");
                 }
             }
         });
