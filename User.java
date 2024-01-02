@@ -38,20 +38,21 @@ public class User implements Serializable {
     }
 
     public static void Register(String username, String password) {
-        User newUser = new User(username, password);
-        userArrayList.add(newUser);
-    
-        try {
-            FileOutputStream out = new FileOutputStream("UserDatabase.txt");
-            ObjectOutputStream oout = new ObjectOutputStream(out);
-            oout.writeObject(userArrayList);
-            oout.close(); // Make sure to close the stream after writing
-    
-            System.out.println("Account successfully created");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }    
+    User newUser = new User(username, password);
+    userArrayList.add(newUser);
+
+    try {
+        FileOutputStream out = new FileOutputStream("UserDatabase.txt");
+        ObjectOutputStream oout = new ObjectOutputStream(out);
+        oout.writeObject(userArrayList);
+        oout.close(); // Make sure to close the stream after writing
+
+        System.out.println("Account successfully created");
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+}
+
 
     public static void LogIn(String username, String password) throws Exception {
         InputStream is = null;

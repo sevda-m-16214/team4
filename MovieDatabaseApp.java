@@ -90,16 +90,18 @@ public class MovieDatabaseApp extends JFrame {
         registerButton.setPreferredSize(loginButton.getPreferredSize());
         registerButton.setBackground(Color.decode("#464646"));
         registerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String username = usernameField.getText();
-                String password = new String(passwordField.getPassword());
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String username = usernameField.getText();
+        String password = new String(passwordField.getPassword());
+
+        User.Register(username, password);
+        // Display a success message or perform any other necessary actions after registration
+        JOptionPane.showMessageDialog(null, "Account successfully created");
+    }
+});
         
-                User.Register(username, password);
-                JOptionPane.showMessageDialog(null, "Account successfully created");
-            }
-        });
-        
+    
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(Color.decode("#A365AD"));
         buttonPanel.add(loginButton);
