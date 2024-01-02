@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class MovieDatabase {
+public class MovieDatabase extends User {
 
     static ArrayList<Movie> MovieDatabase = new ArrayList<Movie>();
 
