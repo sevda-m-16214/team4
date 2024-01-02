@@ -92,10 +92,14 @@ public class MovieDatabaseApp extends JFrame {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Registration Feature Not Implemented");
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+        
+                User.Register(username, password);
+                JOptionPane.showMessageDialog(null, "Account successfully created");
             }
         });
-    
+        
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(Color.decode("#A365AD"));
         buttonPanel.add(loginButton);
