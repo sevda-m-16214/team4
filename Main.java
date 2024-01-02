@@ -18,6 +18,8 @@ public class Main extends MovieDatabase{
             printMovie(MovieDatabase, 2);
             printDatabase(MovieDatabase);
 
+            
+
             /*User test1 = new User("Test1", "12345");
             User test2 = new User("Test2", "54321");
             userArrayList.add(test1);

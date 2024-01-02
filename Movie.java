@@ -1,12 +1,9 @@
-
-
 public class Movie {
     private String title;
     private String director;
     private int releaseYear;
     private int runningTime; 
 
-    
     public Movie(String title, String director, int releaseYear, int runningTime) {
         this.title = title;
         this.director = director;

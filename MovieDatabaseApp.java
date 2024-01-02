@@ -1,13 +1,12 @@
 import javax.swing.*;
 import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class MovieDatabaseApp extends JFrame {
-
+    
     private ArrayList<Movie> movieDatabase;
     private boolean isLoggedIn = false;
     private JPanel headerPanel;
@@ -18,6 +17,7 @@ public class MovieDatabaseApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
         setLayout(new BorderLayout());
+        
 
         getContentPane().setBackground(Color.decode("#A365AD"));
         movieDatabase = new ArrayList<>();
